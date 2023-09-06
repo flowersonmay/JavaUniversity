@@ -1,4 +1,4 @@
-package Задание1;
+package РПJava;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Задание1.Пункт2;
+package РПJava.Задание1.Пункт2;
 
 import java.util.Random;
 

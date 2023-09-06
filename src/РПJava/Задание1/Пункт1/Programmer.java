@@ -1,4 +1,4 @@
-package Задание1.Пункт1;
+package РПJava.Задание1.Пункт1;
 
 class Programmer extends Employee implements ProgrammingLanguage {
     private String[] programmingLanguages;

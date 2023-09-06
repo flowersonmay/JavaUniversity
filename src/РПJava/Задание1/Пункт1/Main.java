@@ -1,4 +1,4 @@
-package Задание1.Пункт1;
+package РПJava.Задание1.Пункт1;
 
 public class Main {
     public static void main(String[] args) {
