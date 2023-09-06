@@ -1,6 +1,4 @@
-package Задание2;
-
-import Задание1.Main;
+package Задание1.Пункт2;
 
 import java.util.Random;
 

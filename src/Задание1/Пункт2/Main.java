@@ -1,6 +1,5 @@
-package Задание2;
+package Задание1.Пункт2;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Main {
