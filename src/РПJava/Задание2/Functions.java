@@ -2,9 +2,8 @@ package РПJava.Задание2;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class Main {
+public class Functions {
 
     public static ArrayList<Student> getArrayStudents(){
         ArrayList<Student> students = new ArrayList<>();
@@ -21,18 +20,12 @@ public class Main {
         for (Map.Entry<String,Double> entry : entrySet){
             if (entry.getValue() >= 3) {
                 newHashMap.put(entry.getKey(),entry.getValue());
-                System.out.println("студент переведен на следующий курс");
-                System.out.println(entry.getKey() + " " + entry.getValue());
-                System.out.println("-------------------------");
+                System.out.println("студент переведен на следующий курс :" + entry.getKey() + " " + entry.getValue() );
+                System.out.println();
+                System.out.println("-");
             }
         }
         return newHashMap;
     }
-    public static void main(String[] args) {
 
-
-
-
-
-    }
 }

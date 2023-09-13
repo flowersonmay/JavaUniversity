@@ -18,18 +18,11 @@ public class Sorter implements Runnable {
         sort();
         long endTime = System.currentTimeMillis();
         long elapsedTime = endTime - startTime;
-        System.out.println(name + " сортировка завершена. Сравнений: " + comparisons + ", Перестановок: " + swaps + ", Время: " + elapsedTime + " мс.");
+        System.out.println(name + "  завершена. Сравнений: " + comparisons + ", Перестановок: " + swaps + ", Время: " + elapsedTime + " мс.");
     }
 
     public void sort() {
         // Реализация сортировки в потомках
     }
 
-    public long getComparisons() {
-        return comparisons;
-    }
-
-    public long getSwaps() {
-        return swaps;
-    }
 }

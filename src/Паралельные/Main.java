@@ -7,25 +7,43 @@ import Паралельные.Задание1.Sorter;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = generateRandomArray(100000);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выберите количество элементов ");
+        int count = scanner.nextInt();
+        int[] array1 = generateRandomArray(count);
+        int[] array2 = Arrays.copyOf(array1, array1.length);
+        int[] array3 = Arrays.copyOf(array1, array1.length);
 
-        Sorter bubbleSorter = new BubbleSorter(Arrays.copyOf(array, array.length));
-        Sorter shellSorter = new ShellSorter(Arrays.copyOf(array, array.length));
-        Sorter quickSorter = new QuickSorter(Arrays.copyOf(array, array.length));
 
-        long startTime = System.currentTimeMillis();
+        Sorter bubbleSorter = new BubbleSorter(array1);
+        Sorter shellSorter = new ShellSorter(array2);
+        Sorter quickSorter = new QuickSorter(array3);
 
+        System.out.println("____________Сортировка с потоками____________");
+        Thread bubbleThread = new Thread(bubbleSorter);
+        Thread shellThread = new Thread(shellSorter);
+        Thread quickThread = new Thread(quickSorter);
+
+
+        quickThread.start();
+        bubbleThread.start();
+        shellThread.start();
+
+        try {
+            bubbleThread.join();
+            shellThread.join();
+            quickThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("____________Сортировка без потока____________");
+        quickSorter.run();
         bubbleSorter.run();
         shellSorter.run();
-        quickSorter.run();
-
-        long endTime = System.currentTimeMillis();
-        long elapsedTime = endTime - startTime;
-
-        System.out.println("Последовательная сортировка завершена. Время: " + elapsedTime + " мс.");
     }
 
     private static int[] generateRandomArray(int size) {
