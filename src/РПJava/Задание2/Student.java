@@ -1,6 +1,7 @@
 package РПJava.Задание2;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public class Student {
     private int id;
@@ -13,7 +14,7 @@ public class Student {
     public Student(int id, String surname, String name,
                    String middleName, LocalDate dateOfBirthday,
                    double avgRateJava) {
-        this.id = id;
+        this.id = checkId(id);
         this.surname = surname;
         this.name = name;
         this.middleName = middleName;
@@ -26,7 +27,17 @@ public class Student {
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id= checkId(id);
+    }
+    public int checkId(int id){
+        String s = String.valueOf(id);
+        if (s.length() == 4) {
+            return id;
+        }
+        else{
+            Random random = new Random();
+            return random.nextInt(1000,9999);
+        }
     }
 
     public String getSurname() {
@@ -51,6 +62,10 @@ public class Student {
 
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
+    }
+
+    public String getFullName(){
+        return this.name + " " + this.middleName + " " + this.middleName;
     }
 
     public LocalDate getDateOfBirthday() {

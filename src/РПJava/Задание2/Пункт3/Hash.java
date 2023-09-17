@@ -3,17 +3,20 @@ package РПJava.Задание2.Пункт3;
 import РПJava.Задание2.Functions;
 import РПJava.Задание2.Student;
 
-import java.awt.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hash {
     public static void main(String[] args) {
-        ArrayList<Student> studentArrayList = new ArrayList<>();
-        studentArrayList = Functions.getArrayStudents();
-        HashMap<String, Double> hashMap = new HashMap<>();
-        for (Student s : studentArrayList) {
-            hashMap.put(s.getName() + " " + s.getSurname() + " " + s.getMiddleName(), s.getAvgRateJava());
-        }
+        ArrayList<Student> studentArrayList = Functions.getArrayStudents();
+        HashMap<String, Double> hashMap;
+
+
+        hashMap = (HashMap<String, Double>)
+                studentArrayList.stream()
+                .filter(s -> s.getAvgRateJava() >= 3)
+                .collect(Collectors.toMap(Student::getFullName, Student::getAvgRateJava));
+
         System.out.println("Перебор");
         hashMap.forEach((k, v) -> System.out.println(k + " | " + v));
         System.out.println("--------------------------------------------------------------");
@@ -38,6 +41,7 @@ public class Hash {
                 .forEach(System.out::println);
         System.out.println("--------------------------------------------------------------");
         System.out.println("Сортировка по значению");
+
         countChar.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .forEach(System.out::println);

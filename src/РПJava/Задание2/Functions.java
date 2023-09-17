@@ -1,7 +1,13 @@
 package РПJava.Задание2;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 public class Functions {
 
@@ -11,7 +17,7 @@ public class Functions {
         students.add(new Student(1002, "Lukin", "Nikita", "Sergeevich", LocalDate.of(2001, 6, 19), 4.3));
         students.add(new Student(1003, "Pupkin", "Alexey", "Pupkinovich", LocalDate.of(2004, 11, 20), 3.8));
         students.add(new Student(1004, "Anotov", "Anot", "Antonovich", LocalDate.of(2003, 2, 27), 5));
-        students.add(new Student(1005, "Vyachik", "Sergey", "Sergeevich", LocalDate.of(2001, 1, 11), 3));
+        students.add(new Student(2, "Vyachik", "Sergey", "Sergeevich", LocalDate.of(2001, 1, 11), 3));
         return  students;
     }
     public static HashMap<String,Double> deleteLess3(HashMap<String,Double> hashMap){
@@ -21,7 +27,6 @@ public class Functions {
             if (entry.getValue() >= 3) {
                 newHashMap.put(entry.getKey(),entry.getValue());
                 System.out.println("студент переведен на следующий курс :" + entry.getKey() + " " + entry.getValue() );
-                System.out.println();
                 System.out.println("-");
             }
         }

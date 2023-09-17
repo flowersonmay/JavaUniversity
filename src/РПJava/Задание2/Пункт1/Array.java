@@ -9,22 +9,38 @@ import java.util.stream.Collectors;
 
 public class Array {
     public static void main(String[] args) {
-        ArrayList<Student> studentArrayList = new ArrayList<>();
+        ArrayList<Student> studentArrayList;
         studentArrayList = Functions.getArrayStudents();
         System.out.println("Распечатать содержимое листа");
         studentArrayList.forEach(System.out::println);
+        System.out.println("--------------------------------------------------------------");
+
+
         System.out.println("Изменить ID третьего студента");
         studentArrayList.get(3).setId(2004);
         System.out.println(studentArrayList.get(3));
+        System.out.println("--------------------------------------------------------------");
+
+
         System.out.println("Удалить последнего студента");
         studentArrayList.remove(studentArrayList.size() - 1);
-        System.out.println("Отсортировать студентов в порядке убывания возроста");
+        studentArrayList.forEach(System.out::println);
+        System.out.println("--------------------------------------------------------------");
+
+
+        System.out.println("Отсортировать студентов в порядке убывания возраста");
         studentArrayList = (ArrayList<Student>) studentArrayList.stream()
-                .sorted(Comparator.comparing(Student::getDateOfBirthday))
+                .sorted(Comparator.comparing(Student::getDateOfBirthday).reversed())
                 .collect(Collectors.toList());
         studentArrayList.forEach(System.out::println);
+
+
+        System.out.println("--------------------------------------------------------------");
         System.out.println("Удалить всех");
         studentArrayList.removeAll(studentArrayList);
         studentArrayList.forEach(System.out::println);
+        System.out.println("Размер списка: " + studentArrayList.size());
+
+
     }
 }
