@@ -1,4 +1,4 @@
-package ПАК_ПС;
+package ПАК_ПС.Задание1;
 
 import ПАК_ПС.Задание1.Factory.ArmyFactory;
 import ПАК_ПС.Задание1.Factory.HumanArmyFactory;
