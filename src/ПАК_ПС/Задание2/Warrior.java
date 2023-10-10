@@ -17,7 +17,11 @@ public class Warrior implements IUnit{
         this.armour = iUnit.armour();
         this.hp = hp;
     }
-
+public Warrior(IUnit iUnit){
+        this.baseAttack = iUnit.attack();
+        this.baseAttack = iUnit.armour();
+        this.hp = (baseAttack + armour) * 2;
+}
     public int getBaseAttack() {
         return baseAttack;
     }
