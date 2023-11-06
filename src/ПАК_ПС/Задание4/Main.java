@@ -12,7 +12,7 @@ public class Main {
         player.ExecuteCommand();
 
         Unit target = new Unit("Target",12,50);
-        AttackCommand attackCommand = new AttackCommand(target);
+        AttackCommand attackCommand = new AttackCommand(target, player);
         player.SetCommand(attackCommand);
         player.ExecuteCommand();
         System.out.println(target.getHp());
